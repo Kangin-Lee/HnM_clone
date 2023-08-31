@@ -57,9 +57,15 @@
 .product-menu div{
   padding: 2px 0;
 }
+.product-menu img{
+  transition: 0.3s;
+  border-radius: 5px;
+}
 
-.product-menu:hover{
+.product-menu img:hover{
   transform: scale(1.1);
+  transition: 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 /* login====================================================================== */
@@ -75,4 +81,50 @@
 
 .form-btn:hover{
   background-color: #e22d42;
+}
+
+/* 디테일 페이지============================================== */
+.detail-img{
+  display: flex;
+  justify-content: flex-end;
+
+}
+.detail-area div{
+  margin: 15px 0;
+}
+.detail-img img{
+  border-radius: 5px;
+}
+
+.dropdown-toggle{
+  margin-bottom:130px;
+}
+
+.detail-info{
+  padding-left: 30px;
+}
+
+.size-choice{
+  border: 2px solid rgb(204, 204, 204);
+}
+
+.size-choice button{
+  padding: 5px 40px;
+  background-color: rgb(231, 229, 229);
+  border: none;
+  color: rgb(204, 204, 204);
+  font-weight: bold;
+}
+
+.size-choice button:hover{
+  background-color: #2a2e31;
+}
+
+.detail-title{
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.product-buy{
+  margin-right: 15px;
 }
