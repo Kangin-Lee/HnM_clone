@@ -4,8 +4,9 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import HamburgerMenu from "./HamburgerMenu";
 
-const Navbar = () => {
+const Navbar = ({ authenticate }) => {
   const menuList = [
     "여성",
     "Divided",
@@ -17,6 +18,9 @@ const Navbar = () => {
     "지속가능성",
   ];
   const navigate = useNavigate();
+  const goToHome = () => {
+    navigate("/");
+  };
   const goToLogin = () => {
     navigate("/login");
   };
@@ -30,12 +34,15 @@ const Navbar = () => {
       navigate(`/?q=${keyword}`);
     }
   };
+
   return (
     <div>
       <div className="nav-top">
         <div className="login-btn" onClick={goToLogin}>
           <FontAwesomeIcon icon={faUser} />
-          <div style={{ marginLeft: "5px" }}>로그인</div>
+          <div style={{ marginLeft: "5px" }}>
+            {authenticate == true ? "로그아웃" : "로그인"}
+          </div>
         </div>
         <div className="search">
           <FontAwesomeIcon icon={faMagnifyingGlass} />
@@ -45,12 +52,19 @@ const Navbar = () => {
             onKeyPress={(event) => search(event)}
           />
         </div>
+        <HamburgerMenu
+          authenticate={authenticate}
+          search={search}
+          goToLogin={goToLogin}
+        />
       </div>
       <Container>
         <div className="nav-section">
           <img
+            className="hnm-img"
             width={100}
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/640px-H%26M-Logo.svg.png"
+            onClick={goToHome}
           />
         </div>
         <div className="menu-area">
